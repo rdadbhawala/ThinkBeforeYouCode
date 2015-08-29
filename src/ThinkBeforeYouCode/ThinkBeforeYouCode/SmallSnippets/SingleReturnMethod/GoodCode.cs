@@ -13,16 +13,38 @@ namespace Abstraction.ThinkBeforeYouCode.SmallSnippets.SingleReturnMethod
 			double tax = 0;
 			if (income < 10000)
 			{
-				tax = income * 10f / 100f;
+				tax = income * 10d / 100d;
 			}
 			else if (income < 20000)
 			{
-				tax = income * 20f / 100f;
+				tax = income * 20d / 100d;
 			}
 			else
 			{
-				tax = income * 30f / 100f;
+				tax = income * 30d / 100d;
 			}
+			return tax;
+		}
+	}
+
+	public class GoodCodeDone
+	{
+		public double ComputeTax(double income)
+		{
+			double tax = 0;
+			if (income < 10000)
+			{
+				tax = income * 10d / 100d;
+			}
+			else if (income < 20000)
+			{
+				tax = income * 20d / 100d;
+			}
+			else
+			{
+				tax = income * 30d / 100d;
+			}
+			tax += (tax * 10d / 100d);
 			return tax;
 		}
 	}
