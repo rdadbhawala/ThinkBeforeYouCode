@@ -11,27 +11,54 @@ namespace Abstraction.ThinkBeforeYouCode.MultiLineComments
 	{
 		public T[] Sort(T[] unsortedArray)
 		{
+			//int arrLength = unsortedArray.Length;
+			//int outerCtr = 0;
+			//int innerCtr = 0;
+
+			//T[] sortedArray = new T[arrLength];
+			//Array.Copy(unsortedArray, sortedArray, arrLength);
+			
+			//for (outerCtr = 0; outerCtr < arrLength; outerCtr++)
+			//{
+			//	for (innerCtr = outerCtr + 1; innerCtr < arrLength; innerCtr++)
+			//	{
+			//		T outerItem = sortedArray[outerCtr];
+			//		T innerItem = sortedArray[innerCtr];
+
+			//		int diff = outerItem.CompareTo(innerItem);
+			//		if (diff > 0)
+			//		{
+			//			sortedArray[innerCtr] = outerItem;
+			//			sortedArray[outerCtr] = innerItem;
+			//		}
+			//	}
+			//}
+
+			//return sortedArray;
+
 			int arrLength = unsortedArray.Length;
-			int outerCtr = 0;
-			int innerCtr = 0;
+			int sortedItemsCount = 0;
+			int insertIndex = 0;
+			int diff = 0;
 
 			T[] sortedArray = new T[arrLength];
-			Array.Copy(unsortedArray, sortedArray, arrLength);
-			
-			for (outerCtr = 0; outerCtr < arrLength; outerCtr++)
+			for (sortedItemsCount = 0; sortedItemsCount < arrLength; sortedItemsCount++)
 			{
-				for (innerCtr = outerCtr + 1; innerCtr < arrLength; innerCtr++)
+				T unsortedItem = unsortedArray[sortedItemsCount];
+				for (insertIndex = sortedItemsCount; insertIndex > 0; insertIndex--)
 				{
-					T outerItem = sortedArray[outerCtr];
-					T innerItem = sortedArray[innerCtr];
-
-					int diff = outerItem.CompareTo(innerItem);
+					T sortedItem = sortedArray[insertIndex - 1];
+					diff = sortedItem.CompareTo(unsortedItem);
 					if (diff > 0)
 					{
-						sortedArray[innerCtr] = outerItem;
-						sortedArray[outerCtr] = innerItem;
+						sortedArray[insertIndex] = sortedItem;
+					}
+					else
+					{
+						break;
 					}
 				}
+				sortedArray[insertIndex] = unsortedItem;
 			}
 
 			return sortedArray;
