@@ -11,7 +11,6 @@ namespace Abstraction.ThinkBeforeYouCode.MultiLineComments
 	{
 		public T[] Sort(T[] unsortedArray)
 		{
-			/*
 			int arrLength = unsortedArray.Length;
 			int outerCtr = 0;
 			int innerCtr = 0;
@@ -36,9 +35,7 @@ namespace Abstraction.ThinkBeforeYouCode.MultiLineComments
 			}
 
 			return sortedArray;
-			*/
 
-			throw new NotImplementedException();
 		}
 	}
 }
